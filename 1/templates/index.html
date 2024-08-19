@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot de Atendimento</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="chat-container">
+    <div id="chatbox" class="chatbox">
+      <!-- Render the initial conversation from the server -->
+      {% for message in conversation %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+    <input id="userInput" type="text" placeholder="Digite sua mensagem...">
+  </div>
+
+  <!-- Include the external JavaScript file -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+
+</html>
